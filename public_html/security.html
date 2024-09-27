@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EcoFlow Energy Solutions - Security Features</title>
+        <link rel="stylesheet" href="styles.css"> <!-- Assuming you have a stylesheet -->
+    </head>
+    <body>
+
+        <!-- Header section -->
+        <header>
+            <div class="container">
+                <img src="image.png" alt="EcoFlow Logo" class="logo">
+                <h1>EcoFlow Energy Solutions</h1>
+                <nav>
+                    <ul class="top-nav">
+                        <li><input type="text" placeholder="Search..."></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                    <ul class="main-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="security.html">Security Feature</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main content section -->
+        <main>
+            <section id="security-features">
+                <div class="container">
+                    <h2>Our Security Features</h2>
+                    <p>At <strong>EcoFlow Energy Solutions</strong>, we are committed to providing the highest level of security to our users. To ensure the protection of sensitive user data, such as email addresses and passwords, we use the latest encryption technologies.</p>
+                    
+                    <h3>Password Security with bcrypt</h3>
+                    <p>One of the key security measures we have implemented is the use of the <strong>bcrypt</strong> algorithm for password encryption. bcrypt is a widely used and highly secure hashing function designed specifically for securely storing passwords.</p>
+                    
+                    <h4>How it Works</h4>
+                    <ul>
+                        <li>When a user registers on our website or updates their password, the password is automatically encrypted using bcrypt before being stored in our database.</li>
+                        <li>The bcrypt algorithm adds a unique "salt" to each password, making it nearly impossible for hackers to decipher the password using common techniques like rainbow table attacks.</li>
+                        <li>During login, the bcrypt algorithm compares the hashed password stored in the database with the user-provided password to ensure it matches without revealing the original password.</li>
+                    </ul>
+                    
+                    <h4>Implementation Details</h4>
+                    <p>We have integrated bcrypt into our backend system to handle password encryption and validation. The steps involved are:</p>
+                    <ol>
+                        <li>When a user submits a registration or login form, their password is encrypted using bcrypt before being stored in the database.</li>
+                        <li>The bcrypt algorithm generates a unique salt and hashes the password with a configurable number of rounds, making it computationally expensive for attackers to crack.</li>
+                        <li>On login, bcrypt compares the hashed password from the database with the input to verify the user’s identity securely.</li>
+                    </ol>
+                    
+                    <h4>Why We Use bcrypt</h4>
+                    <p>bcrypt provides an additional layer of security by ensuring that even if the database is compromised, the passwords stored in it remain protected. Its ability to slow down brute-force attacks ensures that user credentials are much safer compared to plain-text or weaker encryption methods.</p>
+                    
+                    <p>At EcoFlow, we are continuously enhancing our security measures to provide a safe and trustworthy platform for our users. We believe that protecting your data is of utmost importance.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer section -->
+        <footer>
+            <p>&copy; 2024 EcoFlow Energy Solutions. All rights reserved.</p>
+        </footer>
+
+    </body>
+</html>

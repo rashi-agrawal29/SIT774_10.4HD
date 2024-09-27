@@ -48,11 +48,10 @@ app.post('/signup', async(req, res) => {
   try {
     // Hash the password with a salt rounds value of 10
     const hashedPassword = await bcrypt.hash(password, 10);
-    const hashedemail = await bcrypt.hash(email, 10);
     const sql = 'INSERT INTO users (email, password) VALUES (?, ?)';
     
     // Perform the database insertion
-    db.query(sql, [hashedemail, hashedPassword], (err, result) => {
+    db.query(sql, [email, hashedPassword], (err, result) => {
         if (err) {
             console.error('Error inserting user:', err);
             return res.status(500).send('Error registering user.');
@@ -62,7 +61,6 @@ app.post('/signup', async(req, res) => {
         // Log the hashed password to check implementation
         console.log(`User email: ${email}`);
         console.log(`Original password: ${password}`);
-        console.log(`Hashed email: ${hashedemail}`);
         console.log(`Hashed password: ${hashedPassword}`);
     });
 } catch (error) {
@@ -81,24 +79,26 @@ app.post('/login', (req, res) => {
   const { email, password } = req.body;
   const sql = 'SELECT * FROM users WHERE email = ?';
 
-  db.query(sql, [email], (err, results) => {
-      if (err) throw err;
+  db.query(sql, [email], async (err, results) => {
+    if (err) throw err;
 
-      if (results.length > 0) {
-          const user = results[0];
-          // Directly compare input password with stored password
-          if (password === user.password) {
-              req.session.user = user;
-              res.sendFile(__dirname + '/public_html/index.html');
-          } else {
-              res.send('Incorrect password');
-          }
+    if (results.length > 0) {
+      const user = results[0];
+
+      // Compare the entered password with the stored hashed password
+      const match = await bcrypt.compare(password, user.password);
+
+      if (match) {
+        req.session.user = user;
+        res.sendFile(__dirname + '/public_html/index.html');
       } else {
-          res.send('No user found with this email');
+        res.send('Incorrect password');
       }
+    } else {
+      res.send('No user found with this email');
+    }
   });
 });
-
 
 // User login route
 app.get('/login', (req, res) => {
