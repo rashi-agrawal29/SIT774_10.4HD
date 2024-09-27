@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us - EcoFlow Energy Solutions</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1>EcoFlow Energy Solutions</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="contact-form">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <form id="feedbackForm" method="POST" action="/submit-feedback">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name">
+                        <div id="namemsg" class="form-text"></div>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email">
+                        <div id="emailmsg" class="form-text"></div>
+                    </div>
+                    <div>
+                        <label for="phone">Phone:</label>
+                        <input type="text" id="phone" name="phone">
+                        <div id="phonemsg" class="form-text"></div>
+                    </div>
+                    <div>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message"></textarea>
+                        <div id="messagemsg" class="form-text"></div>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit</button>
+                    <button type="button" class="btn-secondary" onclick="resetForm()">Reset</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 EcoFlow Energy Solutions. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </footer>
+        <script src="form-validation.js"></script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - EcoFlow Energy Solutions</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <img src="image.png" alt="EcoFlow Logo" class="logo">
+                <h1>EcoFlow Energy Solutions</h1>
+                <nav>
+                    <ul class="top-nav">
+                        <li><input type="text" placeholder="Search..."></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                    <ul class="main-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <h2 style="text-align: center;">Login</h2>
+        <div class="form-container">
+            <form action="/login" method="POST">
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email" required><br><br>
+                
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 EcoFlow Energy Solutions. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    </body>
+</html>
